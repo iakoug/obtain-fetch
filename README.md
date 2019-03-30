@@ -1,2 +1,2 @@
 # obtain-fetch
-request lib
+To construct a request lib.
