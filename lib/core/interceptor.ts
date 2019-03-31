@@ -8,15 +8,11 @@ class Interceptor {
 		this.handler = []
 	}
 
-	public use(success: Function, failed: Function): Array<Array<any>> {
-		this.handler.push([
-			success, failed
-		])
-
-		return this.handler
+	public use(success: Function, failed: Function): void {
+		this.handler.push([success, failed])
 	}
 
-	public reducer(fn: Function) {
+	public reducer(fn: Function): void {
 		this.handler.forEach(handlerList => fn(handlerList))
 	}
 }

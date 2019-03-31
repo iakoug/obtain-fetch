@@ -3,11 +3,6 @@
  */
 import Interceptor from './interceptor';
 
-interface params {
-  method: string,
-  data: any
-}
-
 interface TypeInterceptor {
   request: Interceptor,
   response: Interceptor
@@ -28,7 +23,7 @@ class Obtain {
 
     let promise = Promise.resolve(options)
 
-    const chain: Array<Array<any>> = [[ fetch(url, options), undefined ]]
+    const chain: Array<Array<any>> = [[fetch(url, options), undefined]]
 
     this.interceptor.request.reducer((...handlerList) => chain.unshift(handlerList))
     this.interceptor.response.reducer((...handlerList) => chain.push(handlerList))
