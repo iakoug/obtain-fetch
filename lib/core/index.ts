@@ -1,7 +1,7 @@
-import Interceptor from './interceptor';
 /**
  * obtain fetch
  */
+import Interceptor from './interceptor';
 
 interface params {
   method: string,
