@@ -24,16 +24,32 @@ class Obtain {
 
     let promise = Promise.resolve(options)
 
-    const chain: Array<Array<any>> = [[fetch(url, options), undefined]]
+    // Collection interceptor
+    const requestHandler: Array<Array<any>> = []
+    const responseHandler: Array<Array<any>> = []
 
-    this.interceptor.request.reducer((...handlerList) => chain.unshift(handlerList))
-    this.interceptor.response.reducer((...handlerList) => chain.push(handlerList))
+    this.interceptor.request.reducer(handlerList => requestHandler.push(handlerList))
+    this.interceptor.response.reducer(handlerList => responseHandler.push(handlerList))
 
-    while (chain.length) {
-      promise = promise.then(...chain.shift())
+    // excute request inteceptor
+    while (requestHandler.length) {
+      promise = promise.then(...requestHandler.shift())
     }
 
-    return promise
+    return new Promise((resolve, reject) => {
+      fetch(url, options).then(
+        async res => {
+          resolve(await res.json())
+
+          // excute response inteceptor
+          while (responseHandler.length) {
+            promise = promise.then(...responseHandler.shift())
+          }
+        },
+        err => reject(err)
+      )
+    })
+
   }
 }
 
