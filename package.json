@@ -2,8 +2,12 @@
   "name": "obtain-fetch",
   "version": "1.0.0",
   "description": "To construct a request lib.",
-  "main": "lib/fetch.ts",
+  "main": "dist/obtain-fetch.cjs.js",
+  "module": "dist/obtain-fetch.esm.js",
+  "browser": "dist/obtain-fetch.umd.js",
   "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "directories": {
@@ -30,6 +34,7 @@
   "devDependencies": {
     "@types/node": "^11.12.2",
     "rollup": "^1.7.4",
+    "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-typescript": "^1.0.1",
     "tslint-config-alloy": "^0.2.1",
     "tslint-eslint-rules": "^5.4.0",

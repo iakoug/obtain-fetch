@@ -76,6 +76,11 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
+builtin-modules@^3.0.0:
+  version "3.0.0"
+  resolved "http://r.cnpmjs.org/builtin-modules/download/builtin-modules-3.0.0.tgz#1e587d44b006620d90286cc7a9238bbc6129cab1"
+  integrity sha1-Hlh9RLAGYg2QKGzHqSOLvGEpyrE=
+
 cache-base@^1.0.1:
   version "1.0.1"
   resolved "http://r.cnpmjs.org/cache-base/download/cache-base-1.0.1.tgz#0a7f46416831c8b662ee36fe4e7c59d76f666ab2"
@@ -334,6 +339,11 @@ is-extendable@^1.0.1:
   dependencies:
     is-plain-object "^2.0.4"
 
+is-module@^1.0.0:
+  version "1.0.0"
+  resolved "http://r.cnpmjs.org/is-module/download/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
+  integrity sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=
+
 is-number@^3.0.0:
   version "3.0.0"
   resolved "http://r.cnpmjs.org/is-number/download/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
@@ -532,6 +542,15 @@ ret@~0.1.10:
   version "0.1.15"
   resolved "http://r.cnpmjs.org/ret/download/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
+
+rollup-plugin-node-resolve@^4.0.1:
+  version "4.0.1"
+  resolved "http://r.cnpmjs.org/rollup-plugin-node-resolve/download/rollup-plugin-node-resolve-4.0.1.tgz#f95765d174e5daeef9ea6268566141f53aa9d422"
+  integrity sha1-+Vdl0XTl2u756mJoVmFB9Tqp1CI=
+  dependencies:
+    builtin-modules "^3.0.0"
+    is-module "^1.0.0"
+    resolve "^1.10.0"
 
 rollup-plugin-typescript@^1.0.1:
   version "1.0.1"
