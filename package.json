@@ -1,0 +1,27 @@
+{
+  "name": "obtain-fetch",
+  "version": "1.0.0",
+  "description": "To construct a request lib.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rollawaypoint/obtain-fetch.git"
+  },
+  "keywords": [],
+  "author": "baozaodexianyu@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rollawaypoint/obtain-fetch/issues"
+  },
+  "homepage": "https://github.com/rollawaypoint/obtain-fetch#readme"
+}
