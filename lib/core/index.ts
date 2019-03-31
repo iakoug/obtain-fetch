@@ -5,7 +5,7 @@ import Interceptor from './interceptor';
 
 interface params {
   method: string,
-  data: object
+  data: any
 }
 
 interface TypeInterceptor {
@@ -23,29 +23,21 @@ class Obtain {
     }
   }
 
-  curl(url: string, options: params): Promise<any> {
+  curl(url: string, options: any): Promise<any> {
     options.method = options.method || 'GET'
 
-    const requestHandlers = this.interceptor.request.handler
+    let promise = Promise.resolve(options)
 
-    if (requestHandlers.length) this.interceptor.request.handler.forEach(interceptor => {
-      options = interceptor(options)
-    })
-    
-    
-    return new Promise<any>(function (resolve, reject) {
-      fetch(url, options).then(res => {
-        const responseHandlers = this.interceptor.response.handler
+    const chain: Array<Array<any>> = [[ fetch(url, options), undefined ]]
 
-        if (responseHandlers.length) this.interceptor.request.handler.forEach(interceptor => {
-          options = interceptor(options)
-        })
+    this.interceptor.request.reducer((...handlerList) => chain.unshift(handlerList))
+    this.interceptor.response.reducer((...handlerList) => chain.push(handlerList))
 
-        resolve(res)
-      }).catch(err => {
-        reject(err)
-      })
-    })
+    while (chain.length) {
+      promise = promise.then(...chain.shift())
+    }
+
+    return promise
   }
 }
 
