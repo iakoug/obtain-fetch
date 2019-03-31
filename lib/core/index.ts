@@ -1,7 +1,8 @@
 /**
  * obtain fetch
  */
-import Interceptor from './interceptor';
+import Interceptor from './interceptor'
+const fetch = require('node-fetch')
 
 interface TypeInterceptor {
   request: Interceptor,
@@ -18,7 +19,7 @@ class Obtain {
     }
   }
 
-  curl(url: string, options: any): Promise<any> {
+  curl(url: string, options: any = {}): Promise<any> {
     options.method = options.method || 'GET'
 
     let promise = Promise.resolve(options)

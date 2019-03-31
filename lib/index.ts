@@ -1,6 +1,6 @@
 /**
  * main
  */
-import obtain from './core/index'
+import obtain from './core'
 
 export default obtain
