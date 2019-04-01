@@ -66,4 +66,4 @@ class Obtain {
   }
 }
 
-export default new Obtain()
+export default Obtain

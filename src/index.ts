@@ -1,11 +1,17 @@
 /**
  * main
  */
-import obtain from './core'
+import Obtain from './core'
+
+import { bind } from './util'
+
+const obtain = new Obtain()
 
 obtain.interceptor.response.use(
   res => res.json(),
   err => ({ err, msg: 'oops, something wrong...'})
 )
 
-export default obtain
+const curl = bind(Obtain.prototype.curl, obtain)
+
+export default { curl, obtain }

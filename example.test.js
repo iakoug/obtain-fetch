@@ -1,6 +1,6 @@
 // http://localhost:4000/banner
 // import obtain from './'
-const obtain = require('./')
+const { obtain, curl } = require('./')
 
 const fetch = require('node-fetch')
 
@@ -13,7 +13,7 @@ obtain.interceptor.response.use(option => {
   return option
 }, 123)
 
-obtain.curl('http://localhost:4000/banner').then(async res => {
+curl('http://localhost:4000/banner').then(async res => {
   console.log(res, '1')
 })
 
