@@ -12,6 +12,14 @@ obtain.interceptor.response.use(
   err => ({ err, msg: 'oops, something wrong...'})
 )
 
-const curl = bind(Obtain.prototype.curl, obtain)
+const curl: any = bind(Obtain.prototype.curl, obtain)
 
-export default { curl, obtain }
+curl.use = function(plugin: Function) {
+  if (typeof plugin !== 'function') {
+    return console.error('Error: plugin must be a function!')
+  }
+
+  plugin(obtain)
+}
+
+export default curl
