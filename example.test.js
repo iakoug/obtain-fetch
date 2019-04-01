@@ -4,17 +4,17 @@ const obtain = require('./')
 
 const fetch = require('node-fetch')
 
-obtain.interceptor.request.use(() => {
-  console.log('in to interceptor ****************')
+obtain.interceptor.request.use(option => {
+  console.log('in to interceptor ****************', option)
+  return option
 }, 123)
-obtain.interceptor.response.use(() => {
-  console.log('after interceptor ****************')
+obtain.interceptor.response.use(option => {
+  console.log('after interceptor ****************', option)
+  return option
 }, 123)
-
-console.log(obtain.interceptor.request)
 
 obtain.curl('http://localhost:4000/banner').then(async res => {
-  console.log(res)
+  console.log(res, '1')
 })
 
 

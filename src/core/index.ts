@@ -37,7 +37,7 @@ class Obtain {
       }
     */
 
-    const chain: Array<any> = [[fetch(url, options), undefined]]
+    const chain: Array<any> = [[() => fetch(url, options), undefined]]
 
     this.interceptor.request.reducer(handlerList => chain.unshift(handlerList))
     this.interceptor.response.reducer(handlerList => chain.push(handlerList))
