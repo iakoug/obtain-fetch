@@ -2,7 +2,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import typescript from 'rollup-plugin-typescript'
 import pkg from './package.json'
 
-const input = 'lib/index.ts'
+const input = 'src/index.ts'
 
 export default {
   input,
