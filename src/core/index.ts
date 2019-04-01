@@ -2,7 +2,7 @@
  * obtain fetch
  */
 import Interceptor from './interceptor'
-const fetch = require('node-fetch')
+import request from './fetch'
 
 interface TypeInterceptor {
   request: Interceptor,
@@ -11,12 +11,17 @@ interface TypeInterceptor {
 
 class Obtain {
   public interceptor: TypeInterceptor
+  public concurrency: number
 
   constructor() {
     this.interceptor = {
       request: new Interceptor(),
       response: new Interceptor()
     }
+  }
+  fetch(url, options) {
+    console.log(this.concurrency, '-----this.concurrency-----')
+    return () => request(url, options, this.concurrency)
   }
 
   curl(url: string, options: any = {}): Promise<any> {
@@ -37,7 +42,7 @@ class Obtain {
       }
     */
 
-    const chain: Array<any> = [[() => fetch(url, options), undefined]]
+    const chain: Array<any> = [[this.fetch(url, options), undefined]]
 
     this.interceptor.request.reducer(handlerList => chain.unshift(handlerList))
     this.interceptor.response.reducer(handlerList => chain.push(handlerList))

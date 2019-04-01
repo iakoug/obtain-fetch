@@ -41,6 +41,7 @@
     "typescript": "^3.4.1"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "request-concurrency": "^1.0.2"
   }
 }
