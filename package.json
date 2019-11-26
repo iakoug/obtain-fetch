@@ -1,0 +1,47 @@
+{
+  "name": "@rollawaypoint/obtain-fetch",
+  "version": "1.0.0",
+  "description": "To construct a request lib.",
+  "repository": "git://github.com/rollawaypoint/obtain-fetch.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "main": "dist/obtain-fetch.cjs.js",
+  "module": "dist/obtain-fetch.esm.js",
+  "browser": "dist/obtain-fetch.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "request",
+    "fetch"
+  ],
+  "author": "baozaodexianyu@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rollawaypoint/obtain-fetch/issues"
+  },
+  "homepage": "https://github.com/rollawaypoint/obtain-fetch#readme",
+  "devDependencies": {
+    "@types/node": "^11.12.2",
+    "rollup": "^1.7.4",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslint-config-alloy": "^0.2.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.4.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "request-concurrency": "^1.0.3"
+  }
+}
